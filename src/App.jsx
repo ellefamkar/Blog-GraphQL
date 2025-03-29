@@ -20,9 +20,14 @@ export default App
 // -> Author -> name + avatar + field + description + slug
 // --> connect authors with posts using Relations (Reference) in GraphCMS
 // -> Comment -> name + email + text +  Reference 
-// Let's build the front
+
+// Let's build the front side:
 // Install GraphQL + Apollo/Client
 // : npm install @apollo/client graphql
 // Initialize Graphql using apollo/client in main.jsx
+// connect react to graphCMS using apollo/client
+// Install Material UI library for UI
+// : npm install @mui/material @emotion/react @emotion/styled
+//
 
 
