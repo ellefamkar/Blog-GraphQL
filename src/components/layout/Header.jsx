@@ -4,7 +4,7 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 function Header() {
   return (
     <>
-      <AppBar position="static" style={{backgroundColor : "#57b0ab"}}>
+      <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
             <Typography component="h1" variant="h5" fontWeight="bold" flex={1}>
