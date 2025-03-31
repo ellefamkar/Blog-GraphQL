@@ -1,14 +1,33 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Divider, Typography } from "@mui/material";
 import React from "react";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Divider,
+  Typography,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
-function CardElement({title, slug, coverPhoto, author}) {
+function CardElement({ title, slug, coverPhoto, author }) {
   return (
-    <Card sx={{ boxShadow : "rgba(0,0,0,0.1) 0x 4px 12px", borderRadius: 4}}>
+    <Card sx={{ boxShadow: "rgba(0,0,0,0.1) 0x 4px 12px", borderRadius: 2 }}>
       <CardHeader
         avatar={
-          <Avatar src={author.avatar.url}  sx={{ marginLeft : 2}} aria-label="author"/>
+          <Avatar
+            src={author.avatar.url}
+            sx={{ marginLeft: 2 }}
+            aria-label="author"
+          />
         }
-        title={<Typography component="p" variant="p" color="text.secondary">{author.name}</Typography>}
+        title={
+          <Typography component="p" variant="p" color="text.secondary">
+            {author.name}
+          </Typography>
+        }
       />
       <CardMedia
         component="img"
@@ -17,15 +36,29 @@ function CardElement({title, slug, coverPhoto, author}) {
         alt={slug}
       />
       <CardContent>
-        <Typography component="h4" variant="p" sx={{ color: "text.primary", fontWeight: 600 }}>
+        <Typography
+          component="h4"
+          variant="p"
+          sx={{ color: "text.primary", fontWeight: 600 }}
+        >
           {title}
         </Typography>
       </CardContent>
-      <Divider variant="middle" sx={{margin :"10px"}} />
+      <Divider variant="middle" sx={{ margin: "10px" }} />
       <CardActions disableSpacing>
-        <Button variant="outlined" size="small" sx={{width: "100%", borderRadius:3}}>Read article</Button>
+        <Link
+          to={`/blogs/${slug}`}
+          style={{ width: "100%", alignItems: "center" }}
+        >
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{ width: "100%", borderRadius: 2 }}
+          >
+            Read article
+          </Button>
+        </Link>
       </CardActions>
-
     </Card>
   );
 }

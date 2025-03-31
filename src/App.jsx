@@ -1,11 +1,22 @@
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Layout from "./components/layout/Layout";
+import Blog from "./components/blog/Blog";
+import Author from "./components/author/Author";
+import Blogs from "./components/Blog/Blogs";
+import Authors from "./components/author/Authors";
 
 function App() {
   return (
     <>
       <Layout>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blogs/:slug" element={<Blog />} />
+          <Route path="/authors/:slug" element={<Author />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/authors" element={<Authors />} />
+        </Routes>
       </Layout>
     </>
   );

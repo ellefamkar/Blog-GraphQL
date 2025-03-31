@@ -5,7 +5,7 @@ import CardElement from "../shared/CardElement.jsx";
 
 function Blogs() {
   const { loading, error, data } = useQuery(GET_BLOGS_INFO);
-  console.log(loading, data, error);
+
   return (
     <>
       {loading ? (
@@ -15,7 +15,7 @@ function Blogs() {
       ) : (
         <Grid container spacing={2}>
           {data.posts.map((post) => (
-            <Grid key={post.id} size={{ xs: 12, sm: 6, md: 4 }}>
+            <Grid key={post.id} size={{ xs: 12, sm: 6, md: 6, lg: 4 }}>
               <CardElement {...post} />
             </Grid>
           ))}
