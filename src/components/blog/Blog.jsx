@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { GET_BLOG_INFO } from "../../graphql/queries";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import Loader from "../shared/Loader";
@@ -17,7 +17,7 @@ function Blog() {
       slug,
     },
   });
-  
+
   return (
     <>
       {loading ? (
@@ -34,8 +34,8 @@ function Blog() {
               justifyContent="space-between"
               alignItems="center"
               sx={{
-                flexDirection : {xs: "column-reverse", sm:"row"},
-                textAlign: { xs: "center", sm: "left" }
+                flexDirection: { xs: "column-reverse", sm: "row" },
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               <Typography
@@ -43,8 +43,8 @@ function Blog() {
                 variant="h4"
                 color="primary.dark"
                 fontWeight={700}
-                sx ={{
-                  mt : {xs: 4, sm: 0}
+                sx={{
+                  mt: { xs: 4, sm: 0 },
                 }}
               >
                 {data.post.title}
@@ -63,18 +63,20 @@ function Blog() {
               />
             </Grid>
             <Grid size={{ xs: 12 }} mt={4} display="flex" alignItems="center">
-              <Avatar
-                src={data.post.author.avatar.url}
-                sx={{ width: "60px", height: "60px", marginRight: "10px" }}
-              />
-              <Box component="div">
-                <Typography component="p" variant="h6">
-                  {data.post.author.name}
-                </Typography>
-                <Typography component="p" variant="p" color="text.secondary">
-                  {data.post.author.field}
-                </Typography>
-              </Box>
+              <Link color="secondary" to={`/authors/${data.post.author.slug}`} style={{display: "flex", alignItems: "center", textDecoration: "none"}}>
+                <Avatar
+                  src={data.post.author.avatar.url}
+                  sx={{ width: "60px", height: "60px", marginRight: "10px" }}
+                />
+                <Box component="div">
+                  <Typography component="p" variant="h6">
+                    {data.post.author.name}
+                  </Typography>
+                  <Typography component="p" variant="p" color="text.secondary">
+                    {data.post.author.field}
+                  </Typography>
+                </Box>
+              </Link>
             </Grid>
             <Grid size={{ xs: 12 }} mt={1}>
               <div

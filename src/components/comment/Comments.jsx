@@ -37,7 +37,7 @@ function Comments({ slug }) {
                   key={comment.id}
                   size={{ xs: 12 }}
                   p={2}
-                  border="1px gray solid"
+                  border="1px #9cb1a6 solid"
                   borderRadius={1}
                   my={2}
                 >
