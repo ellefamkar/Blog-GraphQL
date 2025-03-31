@@ -6,6 +6,7 @@ import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import Loader from "../shared/Loader";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import DOMPurify from "dompurify";
+import CommentForm from "../comment/CommentForm";
 
 function Blog() {
   const navigate = useNavigate();
@@ -74,6 +75,9 @@ function Blog() {
                   __html: DOMPurify.sanitize(data.post.content.html),
                 }}
               ></div>
+            </Grid>
+            <Grid size={{ xs: 12 }}>
+              <CommentForm slug={slug} />
             </Grid>
           </Grid>
         </Container>
