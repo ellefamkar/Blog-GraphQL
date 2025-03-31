@@ -38,6 +38,7 @@ function Comments({ slug }) {
                 p={2}
                 border="1px gray solid"
                 borderRadius={1}
+                my={2}
               >
                 <Box display="flex" alignItems="center">
                   <Avatar>{comment.name[0]}</Avatar>
@@ -56,6 +57,7 @@ function Comments({ slug }) {
                   color="secondary.light"
                   ml={1}
                   mt={2}
+                  textAlign="justify"
                 >
                   {comment.text}
                 </Typography>
