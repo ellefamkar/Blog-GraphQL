@@ -3,7 +3,7 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 function Header() {
   return (
-    <>
+    <header>
       <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
@@ -14,7 +14,7 @@ function Header() {
           </Toolbar>
         </Container>
       </AppBar>
-    </>
+    </header>
   );
 }
 
