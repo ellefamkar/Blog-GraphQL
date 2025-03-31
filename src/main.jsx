@@ -7,7 +7,7 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./mui/theme.js";
 
 const client = new ApolloClient({
-  uri: "https://ap-south-1.cdn.hygraph.com/content/cm8t72qeu01sx07uyq47xfku6/master",
+  uri: import.meta.env.VITE_GRAPHCMS_URI,
   cache: new InMemoryCache(),
 });
 
