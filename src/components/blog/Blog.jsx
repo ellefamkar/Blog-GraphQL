@@ -17,7 +17,7 @@ function Blog() {
       slug,
     },
   });
-  console.log(loading, data, error);
+  
   return (
     <>
       {loading ? (
@@ -33,12 +33,19 @@ function Blog() {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              sx={{
+                flexDirection : {xs: "column-reverse", sm:"row"},
+                textAlign: { xs: "center", sm: "left" }
+              }}
             >
               <Typography
                 component="h3"
                 variant="h4"
                 color="primary.dark"
                 fontWeight={700}
+                sx ={{
+                  mt : {xs: 4, sm: 0}
+                }}
               >
                 {data.post.title}
               </Typography>

@@ -1,16 +1,12 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
-import {
-  Avatar,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Avatar, Container, Grid, Typography } from "@mui/material";
 import DOMPurify from "dompurify";
 import CardElement from "../shared/CardElement";
 import Loader from "../shared/Loader";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
 function Author() {
   const { slug } = useParams();
@@ -21,7 +17,7 @@ function Author() {
   });
   const { author = {} } = data || {};
   const { name, field, avatar, description, post } = author;
-
+  const navigate = useNavigate();
   return (
     <>
       {loading ? (
@@ -31,6 +27,12 @@ function Author() {
       ) : (
         <Container maxWidth="lg">
           <Grid container mt={10}>
+            <Grid size={{ xs: 12 }} display="flex" justifyContent="end">
+              <ArrowCircleRightOutlinedIcon
+                sx={{ cursor: "pointer" }}
+                onClick={() => navigate(-1)}
+              />
+            </Grid>
             <Grid
               size={{ xs: 12 }}
               display="flex"

@@ -3,11 +3,13 @@ import Home from "./components/Home/Home";
 import Layout from "./components/layout/Layout";
 import Blog from "./components/blog/Blog";
 import Author from "./components/author/Author";
+import AutoScrollToTop from "./components/shared/AutoScrollToTop";
 
 function App() {
   return (
     <>
       <Layout>
+        <AutoScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs/:slug" element={<Blog />} />

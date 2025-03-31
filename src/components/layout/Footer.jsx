@@ -14,7 +14,7 @@ function Footer() {
         textAlign="center"
         mt={10}
       >
-        © 2025 Your Company Name. All Rights Reserved.
+        © 2025 Elle Famkar. All Rights Reserved.
       </Typography>
     </footer>
   );
