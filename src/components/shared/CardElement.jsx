@@ -15,20 +15,22 @@ import { Link } from "react-router-dom";
 function CardElement({ title, slug, coverPhoto, author }) {
   return (
     <Card sx={{ boxShadow: "rgba(0,0,0,0.1) 0x 4px 12px", borderRadius: 2 }}>
-      <CardHeader
-        avatar={
-          <Avatar
-            src={author.avatar.url}
-            sx={{ marginLeft: 2 }}
-            aria-label="author"
-          />
-        }
-        title={
-          <Typography component="p" variant="p" color="text.secondary">
-            {author.name}
-          </Typography>
-        }
-      />
+      {author && (
+        <CardHeader
+          avatar={
+            <Avatar
+              src={author.avatar.url}
+              sx={{ marginLeft: 2 }}
+              aria-label="author"
+            />
+          }
+          title={
+            <Typography component="p" variant="p" color="text.secondary">
+              {author.name}
+            </Typography>
+          }
+        />
+      )}
       <CardMedia
         component="img"
         height="194"
@@ -44,7 +46,7 @@ function CardElement({ title, slug, coverPhoto, author }) {
           {title}
         </Typography>
       </CardContent>
-      <Divider variant="middle" sx={{ margin: "10px" }} />
+      {author && <Divider variant="middle" sx={{ margin: "10px" }} />}
       <CardActions disableSpacing>
         <Link
           to={`/blogs/${slug}`}

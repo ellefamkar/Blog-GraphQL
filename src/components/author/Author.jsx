@@ -3,7 +3,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
 import { Avatar, Container, Grid, Typography } from "@mui/material";
-import DOMPurify from "dompurify"; 
+import DOMPurify from "dompurify";
+import CardElement from "../shared/CardElement";
 
 function Author() {
   const { slug } = useParams();
@@ -12,7 +13,9 @@ function Author() {
       slug,
     },
   });
-  
+  const { author = {} } = data || {};
+  const { name, field, avatar, description, post } = author;
+
   return (
     <>
       {loading ? (
@@ -29,9 +32,9 @@ function Author() {
               alignItems="center"
             >
               <Avatar
-                src={data.author.avatar.url}
+                src={avatar.url}
                 sx={{ marginRight: 2, width: "250px", height: "250px" }}
-                aria-label={data.author.name}
+                aria-label={name}
               />
               <Typography
                 component="h3"
@@ -40,7 +43,7 @@ function Author() {
                 fontWeight={700}
                 color="text.secondary"
               >
-                {data.author.name}
+                {name}
               </Typography>
               <Typography
                 component="p"
@@ -48,15 +51,37 @@ function Author() {
                 mt={1}
                 color="text.secondary"
               >
-                {data.author.field}
+                {field}
               </Typography>
             </Grid>
             <Grid size={{ xs: 12 }} mt={5}>
-            <div
+              <div
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(data.author.description.html),
+                  __html: DOMPurify.sanitize(description.html),
                 }}
-              ></div>           
+              ></div>
+            </Grid>
+            <Grid size={{ xs: 12 }} mt={5}>
+              <Typography component="h3" variant="h5" fontWeight={700}>
+                {name}'s Articles
+              </Typography>
+              {post.length > 0 ? (
+                <Grid container spacing={2} mt={2}>
+                  {post.map((post) => (
+                    <Grid key={post.id} size={{ xs: 12, sm: 6, md: 6, lg: 4 }}>
+                      <CardElement
+                        title={post.title}
+                        slug={post.slug}
+                        coverPhoto={post.coverPhoto}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              ) : (
+                <Typography mt={2} color="text.secondary">
+                  {name} has not written any articles yet.
+                </Typography>
+              )}
             </Grid>
           </Grid>
         </Container>
