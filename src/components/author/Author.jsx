@@ -2,9 +2,15 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
-import { Avatar, Container, Grid, Typography } from "@mui/material";
+import {
+  Avatar,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import DOMPurify from "dompurify";
 import CardElement from "../shared/CardElement";
+import Loader from "../shared/Loader";
 
 function Author() {
   const { slug } = useParams();
@@ -19,7 +25,7 @@ function Author() {
   return (
     <>
       {loading ? (
-        <p>Loading ...</p>
+        <Loader />
       ) : error ? (
         <p>{error}</p>
       ) : (

@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_BLOGS_INFO } from "../../graphql/queries.js";
 import Grid from "@mui/material/Grid";
 import CardElement from "../shared/CardElement.jsx";
+import Loader from "../shared/Loader.jsx";
 
 function Blogs() {
   const { loading, error, data } = useQuery(GET_BLOGS_INFO);
@@ -9,7 +10,7 @@ function Blogs() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : error ? (
         <p>{error}</p>
       ) : (
