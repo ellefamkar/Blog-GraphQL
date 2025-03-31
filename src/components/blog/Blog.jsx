@@ -7,6 +7,7 @@ import Loader from "../shared/Loader";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import DOMPurify from "dompurify";
 import CommentForm from "../comment/CommentForm";
+import Comments from "../comment/Comments";
 
 function Blog() {
   const navigate = useNavigate();
@@ -78,6 +79,9 @@ function Blog() {
             </Grid>
             <Grid size={{ xs: 12 }}>
               <CommentForm slug={slug} />
+            </Grid>
+            <Grid size={{ xs: 12 }}>
+              <Comments slug={slug} />
             </Grid>
           </Grid>
         </Container>

@@ -52,7 +52,7 @@ const GET_AUTHOR_INFO = gql`
             }
         }
     }
-`
+`;
 
 const GET_BLOG_INFO = gql`
     query getBlogInfo($slug: String!) {
@@ -73,9 +73,19 @@ const GET_BLOG_INFO = gql`
             title
         }
 }
-`
+`;
+
+const GET_COMMENTS = gql`
+    query getPostComments($slug : String!) {
+        comments (where: {post: {slug: $slug}}) {
+            name
+            id
+            publishedAt
+            text
+        }
+    }
+`;
 
 
 
-
-export { GET_BLOGS_INFO, GET_AUTHORS_INFO, GET_AUTHOR_INFO, GET_BLOG_INFO };
+export { GET_BLOGS_INFO, GET_AUTHORS_INFO, GET_AUTHOR_INFO, GET_BLOG_INFO, GET_COMMENTS };
