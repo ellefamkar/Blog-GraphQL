@@ -7,7 +7,8 @@ import Loader from "../shared/Loader";
 
 function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
-  const authors = data?.authors || [];
+  const { authors } = data || [];
+
   return (
     <>
       {loading ? (

@@ -1,5 +1,6 @@
 import { AppBar, Container, Toolbar, Typography } from "@mui/material";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -10,7 +11,9 @@ function Header() {
             <Typography component="h1" variant="h5" fontWeight="bold" flex={1}>
               Blog
             </Typography>
-            <AutoStoriesIcon />
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <AutoStoriesIcon />
+            </Link>
           </Toolbar>
         </Container>
       </AppBar>
