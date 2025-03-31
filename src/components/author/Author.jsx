@@ -3,6 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
 import { Avatar, Container, Grid, Typography } from "@mui/material";
+import DOMPurify from "dompurify"; 
 
 function Author() {
   const { slug } = useParams();
@@ -11,9 +12,7 @@ function Author() {
       slug,
     },
   });
-  const { author } = data;
-  console.log(loading, data, error);
-
+  
   return (
     <>
       {loading ? (
@@ -30,9 +29,9 @@ function Author() {
               alignItems="center"
             >
               <Avatar
-                src={author.avatar.url}
+                src={data.author.avatar.url}
                 sx={{ marginRight: 2, width: "250px", height: "250px" }}
-                aria-label={author.name}
+                aria-label={data.author.name}
               />
               <Typography
                 component="h3"
@@ -41,7 +40,7 @@ function Author() {
                 fontWeight={700}
                 color="text.secondary"
               >
-                {author.name}
+                {data.author.name}
               </Typography>
               <Typography
                 component="p"
@@ -49,11 +48,15 @@ function Author() {
                 mt={1}
                 color="text.secondary"
               >
-                {author.field}
+                {data.author.field}
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12 }}>
-                <div dangerouslySetInnerHTML={{__html : author.description.html}}></div>
+            <Grid size={{ xs: 12 }} mt={5}>
+            <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(data.author.description.html),
+                }}
+              ></div>           
             </Grid>
           </Grid>
         </Container>
