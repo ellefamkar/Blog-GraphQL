@@ -35,7 +35,7 @@ Remember that "Every day is a learning day" and try to learn from everyone!
 
 ### Links
 
-- Live Site URL: [Blog Application](https://cheery-heliotrope-f5a1ee.netlify.app/)
+- Live Site URL: [Blog Application](https://sage-cactus-094ea3.netlify.app/)
 
 ## My process
 
