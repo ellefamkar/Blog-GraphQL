@@ -25,7 +25,13 @@ function Blog() {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <Container maxWidth="lg">
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingY: { xs: 4, md: 4, lg: 8 },
+            paddingX: 2,
+          }}
+        >
           <Grid container spacing={2}>
             <Grid
               size={{ xs: 12 }}
@@ -63,13 +69,26 @@ function Blog() {
               />
             </Grid>
             <Grid size={{ xs: 12 }} mt={4} display="flex" alignItems="center">
-              <Link color="secondary" to={`/authors/${data.post.author.slug}`} style={{display: "flex", alignItems: "center", textDecoration: "none"}}>
+              <Link
+                to={`/authors/${data.post.author.slug}`}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+              >
                 <Avatar
                   src={data.post.author.avatar.url}
                   sx={{ width: "60px", height: "60px", marginRight: "10px" }}
                 />
                 <Box component="div">
-                  <Typography component="p" variant="h6">
+                  <Typography
+                    color="primary.dark"
+                    fontWeight={600}
+                    lineHeight={1.1}
+                    component="p"
+                    variant="h6"
+                  >
                     {data.post.author.name}
                   </Typography>
                   <Typography component="p" variant="p" color="text.secondary">

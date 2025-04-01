@@ -25,7 +25,10 @@ function Author() {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ 
+          paddingY : {xs: 3, md: 4, lg:8},
+          paddingX : 3
+        }}>
           <Grid container mt={10}>
             <Grid size={{ xs: 12 }} display="flex" justifyContent="end">
               <ArrowCircleRightOutlinedIcon
@@ -49,16 +52,11 @@ function Author() {
                 variant="h5"
                 mt={4}
                 fontWeight={700}
-                color="text.secondary"
+                color="text.primary"
               >
                 {name}
               </Typography>
-              <Typography
-                component="p"
-                variant="p"
-                mt={1}
-                color="text.secondary"
-              >
+              <Typography component="p" variant="p" color="text.secondary">
                 {field}
               </Typography>
             </Grid>

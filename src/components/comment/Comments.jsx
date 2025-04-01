@@ -18,7 +18,7 @@ function Comments({ slug }) {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <Grid container sx={{ boxShadow: 3 }} borderRadius={3} py={1} mt={8}>
+        <Grid container sx={{ boxShadow: 3 }} borderRadius={3} py={1} mt={5}>
           <Grid m={2} size={{ xs: 12 }}>
             <Typography
               component="p"

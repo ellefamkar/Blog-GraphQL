@@ -25,6 +25,7 @@ body {
   font-family: 'FiraCode', Courier, monospace;
   min-width: 320px;
   min-height: 100vh;
+  letter-spacing: -1px;
 }
 
 h1 {
