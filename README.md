@@ -51,6 +51,7 @@ The first think to do is to look for your perfect design! So let's checkout [dri
 - GraphQL
 - Material-UI (MUI)
 - React Router
+- React Hook Form
 - Mobile-first workflow
 - DOMPurify
 - React Toastify
