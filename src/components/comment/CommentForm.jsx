@@ -105,12 +105,7 @@ function CommentForm({ slug }) {
         </Grid>
         <Grid size={{ xs: 12 }} m={2}>
           {
-            <Button
-              variant="contained"
-              type="submit"
-              onClick={() => handleSubmit(onSubmit)}
-              disabled={loading || !isValid}
-            >
+            <Button variant="contained" type="submit" disabled={loading || !isValid}>
               {loading ? "Sending..." : "Send"}
             </Button>
           }
