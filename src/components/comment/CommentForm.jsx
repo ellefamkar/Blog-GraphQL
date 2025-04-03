@@ -58,6 +58,9 @@ function CommentForm({ slug }) {
         </Grid>
         <Grid size={{ xs: 12 }} m={2}>
           <TextField
+            id="name"
+            name="name"
+            autoComplete="off"
             label="Name"
             variant="outlined"
             sx={{ width: "100%" }}
@@ -68,6 +71,9 @@ function CommentForm({ slug }) {
         </Grid>
         <Grid size={{ xs: 12 }} m={2}>
           <TextField
+            id="email"
+            name="email"
+            autoComplete="off"
             label="Email"
             variant="outlined"
             sx={{ width: "100%" }}
@@ -84,6 +90,9 @@ function CommentForm({ slug }) {
         </Grid>
         <Grid size={{ xs: 12 }} m={2}>
           <TextField
+            id="text"
+            name="text"
+            autoComplete="off"
             label="Comment"
             variant="outlined"
             sx={{ width: "100%" }}
