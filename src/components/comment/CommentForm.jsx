@@ -11,7 +11,7 @@ function CommentForm({ slug }) {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
 
   const [sendComment, { loading }] = useMutation(SEND_COMMENT);
